@@ -1,0 +1,18 @@
+.contenedorBody{
+    width: 100%;
+    .contenedorCarousel{
+        margin-bottom: 2rem;
+        width: 100%;
+    }
+    .contenedorInfo{
+        height: 100px;
+        margin-bottom: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .contenedorProductos{
+        display: flex;
+        justify-content: center;
+    }
+}

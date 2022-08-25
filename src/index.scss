@@ -1,0 +1,17 @@
+//settings
+@import './styles/base/settings';
+@import './styles/base/variables';
+
+//components
+@import './components/NavBar/NavBar';
+@import './components/ItemListContainer/IntemListContainer';
+@import './styles/header';
+@import './styles/body';
+@import './components/Card/Card';
+@import './components/Cards/Cards';
+@import './components/Info/info';
+
+//resets
+@import './styles/resets';
+
+

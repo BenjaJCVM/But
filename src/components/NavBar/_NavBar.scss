@@ -1,13 +1,17 @@
 .nav{
     display: flex;
     align-items: center;
+    text-align: center;
     justify-content: space-between;
     width: 100%;
     .logo{
         font: $syncopate;
-        font-size: 52px;
-        font-weight: lighter;
         letter-spacing: -5.7px;
+        h1{
+            font-size: 52px;
+            font-weight: lighter;
+            margin-bottom: 0;
+        }
     }
     .menu{
         display: flex;
@@ -15,6 +19,7 @@
         justify-content: space-between;
         align-items: center;
         width: 500px;
+        margin-bottom: 0;
         li{
             list-style: none;
             a{

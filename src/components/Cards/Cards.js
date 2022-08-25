@@ -8,33 +8,33 @@ import image5 from '../assets/remera5.jpeg';
 const cartas = [
     {
         id:1,
-        title:'Remera',
+        title:'Remera negra',
         image: image1,
-        precio: '$11.999'
+        precio: '$6.599'
     },
     {
         id:2,
-        title:'Remera',
+        title:'Remera blanca',
         image: image2,
-        precio: '$11.999'
+        precio: '$6.599'
     },
     {
         id:3,
-        title:'Remera',
+        title:'Remera negra',
         image: image3,
-        precio: '$11.999'
+        precio: '$5.000'
     },
     {
         id:4,
-        title:'Remera',
+        title:'Remera negra',
         image: image4,
-        precio: '$11.999'
+        precio: '$5.999'
     },
     {
         id:5,
-        title:'Remera',
+        title:'Remera negra',
         image: image5,
-        precio: '$11.999'
+        precio: '$6.999'
     }
 ]
 const Cards = () => {

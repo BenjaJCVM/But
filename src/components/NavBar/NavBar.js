@@ -4,7 +4,7 @@ const NavBar = () => {
     return(
         <nav className="nav">
             <div className="logo">
-                <p>BUT</p>
+                <h1>BUT</h1>
             </div>
             <ul className="menu">
                 <li><a>Inicio</a></li>

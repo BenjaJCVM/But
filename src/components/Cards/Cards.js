@@ -10,31 +10,36 @@ const cartas = [
         id:1,
         title:'Remera negra',
         image: image1,
-        precio: '$6.599'
+        precio: '$6.599',
+        stock:10
     },
     {
         id:2,
         title:'Remera blanca',
         image: image2,
-        precio: '$6.599'
+        precio: '$6.599',
+        stock:2
     },
     {
         id:3,
         title:'Remera negra',
         image: image3,
-        precio: '$5.000'
+        precio: '$5.000',
+        stock:5
     },
     {
         id:4,
         title:'Remera negra',
         image: image4,
-        precio: '$5.999'
+        precio: '$5.999',
+        stock:3
     },
     {
         id:5,
         title:'Remera negra',
         image: image5,
-        precio: '$6.999'
+        precio: '$6.999',
+        stock:4
     }
 ]
 const Cards = () => {
@@ -43,7 +48,7 @@ const Cards = () => {
             {
                 cartas.map((card) => (
                     <div className="cCard" key={card.id}>
-                        <Card imagen={card.image} titulo={card.title} precio={card.precio}/>
+                        <Card imagen={card.image} titulo={card.title} precio={card.precio} stock={card.stock}/>
                     </div>
                 ))
             }

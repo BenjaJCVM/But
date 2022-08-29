@@ -1,4 +1,7 @@
 .headerTienda{
+    position: sticky;
+    top: 0;
+    z-index: 1;
     display: flex;
     height: 80px;
     margin: 0 42px 0 42px;

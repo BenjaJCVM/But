@@ -4,6 +4,8 @@ import Item from "../Item/Item";
 const ItemList = () => {
     const [productos, setProductos] = useState([]);
 
+
+    //JSON LOCAL
     //const getData = async () =>{
     //    const response = await fetch('data.json');
     //   const data = await response.json();
@@ -14,6 +16,7 @@ const ItemList = () => {
     //    })
     //}
 
+    //JSONBIN
     const getData = async () =>{
         const response = await fetch('https://api.jsonbin.io/v3/b/6310086ba1610e638618034c',{
             headers:{

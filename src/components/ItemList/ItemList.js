@@ -4,8 +4,6 @@ import Item from "../Item/Item";
 const ItemList = () => {
     const [productos, setProductos] = useState([]);
 
-
-    //JSON LOCAL
     //const getData = async () =>{
     //    const response = await fetch('data.json');
     //   const data = await response.json();

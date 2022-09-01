@@ -1,4 +1,4 @@
-import Cards from "../Cards/Cards";
+import ItemList from "../ItemList/ItemList";
 import Carousel from "../Carousel/Carousel";
 import Info from "../Info/Info";
 
@@ -12,7 +12,7 @@ const ItemListContainer = () => {
                 <Info />
             </div>
             <div className="contenedorProductos">
-                <Cards/>
+                <ItemList/>
             </div>
         </div>
 

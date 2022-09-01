@@ -1,18 +1,18 @@
-.contenedorCard{
+.contenedorItem{
     display: flex;
     flex-direction: column;
     align-items: center;
     flex-wrap: wrap;
     max-width: 250px;
-    .imagenCard{
+    .imagenItem{
         width: 250px;
         margin-bottom: 0.5rem;
     }
-    .tituloCard{
+    .tituloItem{
         font-size: 1.2rem;
         margin: 0;
     }
-    .precioCard{
+    .precioItem{
         font-size: 1rem;
         margin: 0;
     }

@@ -1,0 +1,52 @@
+.detalleContenedorItem{
+    width: 900px;
+    display: flex;
+    flex-direction: row;
+    padding: 20px;
+    .detalleContImagen{
+        margin-right: 10px;
+        border: none;
+        .detalleImagenItem{ 
+            border: none;
+            width: 400px;
+            height: 450px;
+        }
+    }
+    .detalleContInfo{
+        margin-left: 10px;
+        .detalleTituloItem{
+            font-size: 32px;
+        }
+        .detalleDescripcionItem{
+            font-size: 18px;
+            font-weight: lighter;
+        }
+        .detallePrecioItem{
+            font-size: 24px;
+        }
+        .detalleTituloTalles{
+            font-size: 24px;
+        }
+        .select, .detalleBoton{
+            width: 250px;
+            height: 30px;
+            font-size: 16px;
+            border-radius: 5px;
+            text-align: center;
+            background: none;
+            margin-bottom: 10px;
+        }
+        .compra{
+            background-color: #2e2e2e;
+            color: white;
+        }
+        .detalleTituloDetalles{
+            font-size: 24px;
+        }
+        .detalleDetalleProducto{
+            font-size: 18px;
+            font-weight: lighter;
+            margin: none;
+        }
+    }
+}

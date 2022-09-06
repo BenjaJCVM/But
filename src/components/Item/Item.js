@@ -13,7 +13,7 @@ const Item = (props) => {
     return(
         <div className="contenedorItem">
             <img src={producto.image} className="imagenItem"/>
-            <h2 className="tituloItem">{producto.titulo}</h2>
+            <h2 className="tituloItem">{producto.title}</h2>
             <p className="precioItem">{producto.precio}</p>
             <ItemCount inicio={0} stock={producto.stock} onAdd={onAdd} carrito={carrito}/>
             <p className="indicadorCarrito" >{carrito} unidades en el carrito</p>

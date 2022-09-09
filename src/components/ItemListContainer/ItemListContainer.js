@@ -15,8 +15,6 @@ const ItemListContainer = () => {
             <div className="contenedorProductos">
                 <ItemList/>
             </div>
-            <div className="detalleContenedorProductos">
-            </div>
         </div>
 
     );

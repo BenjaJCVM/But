@@ -1,11 +1,15 @@
 .detalleContenedorItem{
     width: 900px;
     display: flex;
+    justify-content: center;
     flex-direction: row;
     padding: 20px;
     .detalleContImagen{
+        display: flex;
+        align-items: center;
         margin-right: 10px;
         border: none;
+        padding: 20px;
         .detalleImagenItem{ 
             border: none;
             width: 400px;
@@ -18,7 +22,7 @@
             font-size: 32px;
         }
         .detalleDescripcionItem{
-            font-size: 18px;
+            font-size: 16px;
             font-weight: lighter;
         }
         .detallePrecioItem{

@@ -14,7 +14,7 @@ const Item = (props) => {
         <div className="contenedorItem">
             <img src={producto.image} className="imagenItem"/>
             <h2 className="tituloItem">{producto.title}</h2>
-            <p className="precioItem">{producto.precio}</p>
+            <p className="precioItem">{producto.price}</p>
             <ItemCount inicio={0} stock={producto.stock} onAdd={onAdd} carrito={carrito}/>
             <p className="indicadorCarrito" >{carrito} unidades en el carrito</p>
         </div>

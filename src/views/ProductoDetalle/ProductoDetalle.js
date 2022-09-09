@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
@@ -9,26 +10,18 @@ const ProductoDetalle = () =>{
 
     let {id} = useParams();
 
-    const getData = async () =>{
-        const res = await fetch(`https://fakestoreapi.com/products/${id}`);
-        const data = await res.json();
-        return data;
-    }
-
     useEffect(() => {
-        getData().then((data) => setProduct(data));
+        const getData = axios(`https://fakestoreapi.com/products`);
+        getData.then((res) => {
+            const finder = res.data.find(p => p.id == id);
+            setProduct(finder);
+        })
     }, [id])
 
 
     return( 
-        <div>
-            {product.map((item) => {
-                return(
-                    <div>
-                        <ItemDetail item={item}/>
-                    </div>
-                );
-            })}
+        <div className="detalleBody">
+            <ItemDetail item={product}/>
         </div>
     );
     

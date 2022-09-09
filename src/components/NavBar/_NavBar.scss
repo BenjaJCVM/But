@@ -5,15 +5,16 @@
     justify-content: space-between;
     width: 100%;
     background-color: white;
-    opacity: 90%;
     height: 80px;
     .logo{
         font: $syncopate;
         letter-spacing: -5.7px;
-        h1{
+        .enlaceLogo{
             font-size: 52px;
             font-weight: lighter;
             margin-bottom: 0;
+            text-decoration: none;
+            color: $nero;
         }
     }
     .menu{
@@ -23,16 +24,13 @@
         align-items: center;
         width: 500px;
         margin-bottom: 0;
-        li{
-            list-style: none;
-            a{
-                text-decoration: none;
-                font-size: 18px;
-                font-weight: light;
-                color: $nero;
-                .carrito{
-                    font-size: 1.5rem;
-                }
+        .enlace{
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: light;
+            color: $nero;
+            .carrito{
+                font-size: 1.5rem;
             }
         }
     }

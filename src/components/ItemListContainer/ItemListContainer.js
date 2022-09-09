@@ -7,13 +7,15 @@ const ItemListContainer = () => {
     return(
         <div className="contenedorBody">
             <div className="contenedorCarousel">
+                <Carousel/>
             </div>
             <div className="contenedorInfo">
+                <Info/>
             </div>
             <div className="contenedorProductos">
+                <ItemList/>
             </div>
             <div className="detalleContenedorProductos">
-                <ItemDetailContainer/>
             </div>
         </div>
 

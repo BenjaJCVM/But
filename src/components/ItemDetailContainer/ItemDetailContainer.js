@@ -5,7 +5,7 @@ const ItemDetailContainer = () => {
     const [producto, setProducto] = useState([]);
 
     //JSONBIN
-    const getData = async () =>{
+    /*const getData = async () =>{
         const response = await fetch('https://api.jsonbin.io/v3/b/631792395c146d63ca91291b',{
             headers:{
                 "X-Master-Key":'$2b$10$ZAKEWYldYWx9vlcyFPhEdeKO4bLryPCtj1sipNkgQwkpYJxCZorau'
@@ -21,9 +21,18 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         getData().then((data) => setProducto(data));
+    }, [])*/
 
+    const getData = async () =>{
+        const response = await fetch(`https://fakestoreapi.com/products`)
+        const data = await response.json();
+        return data;
+    }
+
+    useEffect(() => {
+        getData().then((data) => setProducto(data));
     }, [])
-    console.log(producto);
+
     return(
         <div className="detalleContenedorItems">
              <ItemDetail item={producto}/>

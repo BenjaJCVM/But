@@ -1,7 +1,16 @@
-import React from "react";
-
+import React, {useContext, useState} from "react";
+import { Link } from "react-router-dom";
+import ItemCount from "../ItemCount/ItemCount"
+import { ItemsContext } from "../../context/CartContext/CartContext";
 
 const ItemDetail = ({item}) => {
+    const [cart, setCart] = useState(false);
+
+    const onAdd = (valor) =>{
+        setCart(true)
+    }
+
+
     return(
         <div className="detalleContenedorItem">
             <div className="detalleContImagen">
@@ -18,7 +27,9 @@ const ItemDetail = ({item}) => {
                     <option>L</option>
                     <option>XL</option>
                 </select>
-                <button className="detalleBoton compra">Comprar</button>
+                {cart ? 
+                    <Link className="terminarBoton" to='/Cart'><div className="contTerminarBoton">Terminar Compra</div></Link>
+                 : <ItemCount inicio={1} stock={5} onAdd={onAdd}/>}
                 <button className="detalleBoton">Compra Rapida</button>
             </div>
         </div>

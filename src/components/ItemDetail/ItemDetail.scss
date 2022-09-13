@@ -31,7 +31,7 @@
         .detalleTituloTalles{
             font-size: 24px;
         }
-        .select, .detalleBoton{
+        .select, .detalleBoton,.contTerminarBoton{
             width: 250px;
             height: 30px;
             font-size: 16px;
@@ -40,17 +40,17 @@
             background: none;
             margin-bottom: 10px;
         }
-        .compra{
-            background-color: #2e2e2e;
+        .terminarBoton{
             color: white;
+            text-decoration: none;
+            font-size: 16px;
+            .contTerminarBoton{
+                color: white;
+                border: 2px solid $nero;
+                background: $nero;
+            }
+            
         }
-        .detalleTituloDetalles{
-            font-size: 24px;
-        }
-        .detalleDetalleProducto{
-            font-size: 18px;
-            font-weight: lighter;
-            margin: none;
-        }
+        
     }
 }

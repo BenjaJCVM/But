@@ -5,9 +5,11 @@ import { ItemsContext } from "../../context/CartContext/CartContext";
 
 const ItemDetail = ({item}) => {
     const [cart, setCart] = useState(false);
+    const test = useContext(ItemsContext);
 
-    const onAdd = (valor) =>{
-        setCart(true)
+    const onAdd = (cantidad) =>{
+        setCart(true);
+        test.addItem(item,cantidad);
     }
 
 

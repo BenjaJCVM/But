@@ -1,0 +1,45 @@
+.contenedorItemsCarrito{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    .itemEnCarrito{
+        border: 1px solid $nero;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        width: 700px;
+        justify-content: space-between;
+        border-radius: 5px;
+        .contImagenCarrito{
+            .carritoImagenItem{
+                width:250px;
+                height:250px;
+            }
+        }
+        .contInfoCarrito{
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            padding: 10px;
+            width: 100%;
+            .tituloCarrito{
+                font-size: 18px;
+                font-weight: bold;
+            }
+        }
+        .contBotonCarrito{
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            .botonCerrarCarrito{
+                width: 2rem;
+                height: 2rem;
+                font-size: 2rem;
+                background: none;
+                font-weight: lighter;
+                border: none;
+            }
+        }
+    }
+}

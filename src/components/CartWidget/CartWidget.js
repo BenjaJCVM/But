@@ -10,10 +10,16 @@ const CartWidget = () => {
       itemsInCart = itemsInCart + item.cantidad;
     })
 
+    const mostarNumero = (e) =>{
+        if(e > 0){
+            return itemsInCart;
+        }
+    }
+
     return(
         <>
             <i className="bi bi-bag carrito"></i>
-            {itemsInCart}
+            {mostarNumero(itemsInCart)}
         </>
     );
 }

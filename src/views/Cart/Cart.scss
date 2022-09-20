@@ -3,6 +3,28 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    .botonBorrarTodo, .botonVolverInicio{
+        width: 250px;
+        height: 30px;
+        font-size: 16px;
+        border-radius: 5px;
+        text-align: center;
+        background: none;
+        margin-bottom: 10px;
+    }
+    .botonVolverInicio{
+        color: white;
+        border: 2px solid $nero;
+        background: $nero;
+    }
+    .disable{
+        display: none;
+    }
+    .precioTotal{
+        color:$nero;
+        font-weight: 500;
+        font-size: 24px;
+    }
     .itemEnCarrito{
         border: 1px solid $nero;
         padding: 10px;

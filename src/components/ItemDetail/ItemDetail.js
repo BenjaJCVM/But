@@ -16,11 +16,10 @@ const ItemDetail = ({item}) => {
     return(
         <div className="detalleContenedorItem">
             <div className="detalleContImagen">
-                <img src={item.image} className="detalleImagenItem"/>
+                <img src={item.img} className="detalleImagenItem"/>
             </div>
             <div className="detalleContInfo">
                 <h2 className="detalleTituloItem">{item.title}</h2>
-                <p className="detalleDescripcionItem">{item.description}</p>
                 <p className="detallePrecioItem">${item.price}</p>
                 <h2 className="detalleTituloTalles">Talles</h2>
                 <select className="select">
@@ -31,7 +30,7 @@ const ItemDetail = ({item}) => {
                 </select>
                 {cart ? 
                     <Link className="terminarBoton" to='/Cart'><div className="contTerminarBoton">Terminar Compra</div></Link>
-                 : <ItemCount inicio={1} stock={5} onAdd={onAdd}/>}
+                 : <ItemCount inicio={1} stock={item.stock} onAdd={onAdd}/>}
                 <button className="detalleBoton">Compra Rapida</button>
             </div>
         </div>

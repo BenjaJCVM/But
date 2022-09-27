@@ -1,8 +1,10 @@
-import axios from "axios";
 import React, {useState, useEffect} from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../../components/ItemDetail/ItemDetail";
 
+// FIREBASE
+import { db } from '../../firebase/FirebaseConfig';
+import { doc, getDoc } from "firebase/firestore";
 
 
 const ProductoDetalle = () =>{
@@ -11,13 +13,13 @@ const ProductoDetalle = () =>{
     let {id} = useParams();
 
     useEffect(() => {
-        const getData = axios(`https://fakestoreapi.com/products`);
-        getData.then((res) => {
-            const finder = res.data.find(p => p.id == id);
-            setProduct(finder);
-        })
+        const q = doc(db, 'ropa', id);
+        getDoc(q)
+            .then(res => setProduct({
+                id:res.id,
+                ...res.data()
+            }))
     }, [id])
-
 
     return( 
         <div className="detalleBody">

@@ -14,7 +14,7 @@ const Cart = () =>{
                 test.items.map(item =>
                 <div key={item.id} className='itemEnCarrito'>
                     <div className="contImagenCarrito">
-                        <img src={item.image} className="carritoImagenItem"/>
+                        <img src={item.img} className='carritoImagenItem'></img>
                     </div>
                     <div className="contInfoCarrito">
                         <p className="tituloCarrito">{item.title}</p>
@@ -27,6 +27,7 @@ const Cart = () =>{
                 </div>)
             }
             <p className={test.items.length !== 0 ? 'precioTotal' : 'disable'}>Total: ${test.total}</p>
+            {console.log(test.total)}
         </div>
     )
 }

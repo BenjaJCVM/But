@@ -3,21 +3,19 @@ import Item from "../Item/Item";
 
 //react router dom
 import { Link } from "react-router-dom";
+// FIREBASE
+
+import { getTodaRopa } from '../../firebase/FirebaseConfig';
 
 const ItemList = () => {
     const [productos, setProductos] = useState([]);
 
-    const getData = async () =>{
-        const response = await fetch('https://fakestoreapi.com/products')
-        const data = await response.json();
-        return data;
-    }
 
     useEffect(() => {
-        getData().then((data) => setProductos(data));
+        getTodaRopa()
+            .then(result => setProductos(result) )
     }, [])
     
-
     return(
         <div className="contenedorItems">
             {productos.map((item) => {

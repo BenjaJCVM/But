@@ -26,18 +26,18 @@ export const ItemsProvider = ({ children }) =>{
                 return prod
             }))
             :
-            setItems([...items, {id: item.id, title: item.title,image: item.image , price: item.price, cantidad: cantidad}])
+            setItems([...items, {id: item.id, title: item.title,img: item.img , price: item.price, cantidad: cantidad}])
     }
 
     const removeItem = (id) =>{
-        let newCartList = items.filter(item => item.id !== id)
+        let newCartList = items.filter(item => item.id !== id);
         setItems(newCartList);
     }
 
     const clear = () =>{setItems([]);}
 
     return(
-        <ItemsContext.Provider value={{items, addItem, removeItem, clear,isInCart, total}}>
+        <ItemsContext.Provider value={{items, addItem, removeItem, clear, isInCart, total}}>
             {children}
         </ItemsContext.Provider>
     );

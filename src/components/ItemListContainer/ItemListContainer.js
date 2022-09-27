@@ -1,7 +1,6 @@
 import ItemList from "../ItemList/ItemList";
 import Carousel from "../Carousel/Carousel";
 import Info from "../Info/Info";
-import ItemDetailContainer from "../ItemDetailContainer/ItemDetailContainer";
 
 const ItemListContainer = () => {
     return(

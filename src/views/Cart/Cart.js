@@ -1,17 +1,35 @@
 import { useContext } from "react";
 import { ItemsContext } from "../../context/CartContext/CartContext";
 import { Link } from 'react-router-dom';
+import { db } from '../../firebase/FirebaseConfig';
+import { addDoc, collection } from "firebase/firestore";
 
 
 const Cart = () =>{
-    const test = useContext(ItemsContext);
+    const cart = useContext(ItemsContext);
+
+    const orden = {
+        comprador:{
+            nombre:'benja',
+            apellido:'brugiafreddo',
+            telefono:'123',
+            direccion:'general paz'
+        },
+        productos: cart.items.map(item => ({id:item.id, title:item.title, price:item.price}))
+    }
+
+    const terminarCompra = () =>{
+        const ordenCompra = collection(db, 'ordenes');
+        addDoc(ordenCompra, orden)
+            .then(({id}) => console.log(id))
+    }
 
     return(
         <div className="contenedorItemsCarrito">
-            <button onClick={test.clear} className={test.items.length !== 0 ? 'botonBorrarTodo' : 'disable'}>Borrar todo</button>
-            <Link to='/' ><button className={test.items.length === 0 ? 'botonVolverInicio' : 'disable'}>Volver a productos</button></Link>
+            <button onClick={cart.clear} className={cart.items.length !== 0 ? 'botonBorrarTodo' : 'disable'}>Borrar todo</button>
+            <Link to='/' ><button className={cart.items.length === 0 ? 'botonVolverInicio' : 'disable'}>Volver a productos</button></Link>
             {
-                test.items.map(item =>
+                cart.items.map(item =>
                 <div key={item.id} className='itemEnCarrito'>
                     <div className="contImagenCarrito">
                         <img src={item.img} className='carritoImagenItem'></img>
@@ -22,12 +40,14 @@ const Cart = () =>{
                         <p>Total: ${item.price * item.cantidad}</p>
                     </div>
                     <div className="contBotonCarrito">
-                        <button onClick={() => test.removeItem(item.id)}className='botonCerrarCarrito'>x</button>
+                        <button onClick={() => cart.removeItem(item.id)}className='botonCerrarCarrito'>x</button>
                     </div>
                 </div>)
             }
-            <p className={test.items.length !== 0 ? 'precioTotal' : 'disable'}>Total: ${test.total}</p>
-            {console.log(test.total)}
+            <p className={cart.items.length !== 0 ? 'precioTotal' : 'disable'}>Total: ${cart.total}</p>
+            <div>
+                <button onClick={terminarCompra} className={cart.items.length !== 0 ? 'botonVolverInicio' : 'disable'}>Terminar Compra</button>
+            </div>
         </div>
     )
 }

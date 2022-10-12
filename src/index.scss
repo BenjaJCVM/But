@@ -12,9 +12,13 @@
 @import './components/Info/info';
 @import './components/ItemCount/ItemCount';
 @import './components/ItemDetail/ItemDetail';
+@import './components/Footer/Footer';
 @import './views/ProductoDetalle/ProductoDetalle';
-@import './views/Productos/Productos';
 @import './views/Cart/Cart';
+@import './views/Categorias/Category';
+@import './components/Form/Form';
+@import './views/Checkout/Checkout';
+
 
 //resets
 @import './styles/resets';

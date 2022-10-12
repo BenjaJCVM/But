@@ -1,33 +1,28 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { ItemsContext } from "../../context/CartContext/CartContext";
 import { Link } from 'react-router-dom';
-import { db } from '../../firebase/FirebaseConfig';
-import { addDoc, collection } from "firebase/firestore";
+
 
 
 const Cart = () =>{
     const cart = useContext(ItemsContext);
 
-    const orden = {
-        comprador:{
-            nombre:'benja',
-            apellido:'brugiafreddo',
-            telefono:'123',
-            direccion:'general paz'
-        },
-        productos: cart.items.map(item => ({id:item.id, title:item.title, price:item.price}))
+    const [total, setTotal] = useState(0);
+
+    const sumaTotal = () =>{
+        let totales = cart.items.map(item => item.total)
+        const sumaTotales = totales.reduce((anterior, actual) => anterior + actual, 0);
+        setTotal(sumaTotales);
     }
 
-    const terminarCompra = () =>{
-        const ordenCompra = collection(db, 'ordenes');
-        addDoc(ordenCompra, orden)
-            .then(({id}) => console.log(id))
-    }
+    useEffect(() => {
+        sumaTotal();
+    }, [cart])
 
     return(
         <div className="contenedorItemsCarrito">
             <button onClick={cart.clear} className={cart.items.length !== 0 ? 'botonBorrarTodo' : 'disable'}>Borrar todo</button>
-            <Link to='/' ><button className={cart.items.length === 0 ? 'botonVolverInicio' : 'disable'}>Volver a productos</button></Link>
+            <Link to='/' ><button className={cart.items.length === 0 ? 'botonVolverInicio' : 'disable'}>Volver a inicio</button></Link>
             {
                 cart.items.map(item =>
                 <div key={item.id} className='itemEnCarrito'>
@@ -44,10 +39,8 @@ const Cart = () =>{
                     </div>
                 </div>)
             }
-            <p className={cart.items.length !== 0 ? 'precioTotal' : 'disable'}>Total: ${cart.total}</p>
-            <div>
-                <button onClick={terminarCompra} className={cart.items.length !== 0 ? 'botonVolverInicio' : 'disable'}>Terminar Compra</button>
-            </div>
+            <p className={cart.items.length !== 0 ? 'precioTotal' : 'disable'}>Total: ${total}</p>
+            <Link to='/Checkout' className={cart.items.length !== 0 ? 'botonFinalizarCompra' : 'disable'}>Finalizar Compra</Link>
         </div>
     )
 }

@@ -1,0 +1,64 @@
+.contenedorCheckout{
+    display: flex;
+    justify-content: center;
+    .contenedorFormCheck{
+        margin-right: 2rem;
+        .tituloForm{
+            width: 400px;
+            font-weight: 400;
+            font-size: 24px;
+            border-bottom: 1px solid $nero;
+            margin-bottom: 20px;
+        }
+    }
+    .contenedorDetalleCheck{
+        width: 400px;
+        margin-left: 2rem;
+        .tituloResumenCompra{
+            width: 400px;
+            font-weight: 400;
+            font-size: 24px;
+            border-bottom: 1px solid $nero;
+            margin-bottom: 20px;
+        }
+        .contItemsCheck{
+            height: fit-content;
+            border-bottom: 1px solid $nero;
+            margin-bottom: 1rem;
+            .itemEnCheckout{
+                margin-bottom: 1rem;
+                width: 400px;
+                display: flex;
+                .contImagenCheckout{
+                    margin-right: 10px;
+                    .carritoImagenCheckout{
+                        width: 100px;
+                    }
+                }
+                .contInfoCheckout{
+                    width: 300px;
+                    display: flex;
+                    flex-direction: column;
+                    .contTituloCheckout{
+                        width: 100%;
+                        font-size: 24px;
+                        font-weight: 500;
+                    }
+                    .contCantAndPrecio{
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                        .pCantCheck, .pPrecioCheck{
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+            }
+        }
+        .contTotal{
+            .totalCheck{
+                font-size: 24px;
+            }
+        }  
+    }
+}

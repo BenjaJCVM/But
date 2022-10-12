@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     gap: 20px;
-    .botonBorrarTodo, .botonVolverInicio{
+    .botonBorrarTodo, .botonVolverInicio, .botonFinalizarCompra{
         width: 250px;
         height: 30px;
         font-size: 16px;
@@ -12,10 +12,11 @@
         background: none;
         margin-bottom: 10px;
     }
-    .botonVolverInicio{
+    .botonVolverInicio, .botonFinalizarCompra{
         color: white;
         border: 2px solid $nero;
         background: $nero;
+        text-decoration: none;
     }
     .disable{
         display: none;

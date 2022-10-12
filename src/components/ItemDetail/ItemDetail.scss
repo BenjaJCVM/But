@@ -9,7 +9,6 @@
         align-items: center;
         margin-right: 10px;
         border: none;
-        padding: 20px;
         .detalleImagenItem{ 
             border: none;
             width: 400px;
@@ -17,6 +16,9 @@
         }
     }
     .detalleContInfo{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
         margin-left: 10px;
         .detalleTituloItem{
             font-size: 32px;

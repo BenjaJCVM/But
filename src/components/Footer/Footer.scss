@@ -1,0 +1,49 @@
+.contenedorFooter{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 175px;
+    width: 100%;
+    background-color: $nero;
+    padding: 20px 0 20px 0;
+    .navFooter{
+        .tituloFooter{
+            font-size:20px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .ulNavFooter{
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            list-style: none;
+            .enlace{
+                text-decoration: none;
+                color:#fff;
+            }
+        }
+    }
+    .contactanosFooter{
+        .tituloFooter{
+            font-size:20px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .pContactanosFooter{
+            color:#fff;
+            margin-bottom: 10px;
+        }
+    }
+    .redesFooter{
+        .tituloFooter{
+            font-size:20px;
+            color: #fff;
+            margin-bottom: 10px;
+        }
+        .icono{
+            font-size:32px;
+            margin-right: 15px;
+            color: #fff;
+        }
+    }
+}

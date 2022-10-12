@@ -1,0 +1,19 @@
+.contenedorCategorias{
+    display: flex;
+    justify-content: center;
+    .productosCategorias{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        max-width: 1200px;
+        gap: 2rem;
+        div{
+            a{
+                text-decoration: none;
+            }
+        }
+    }
+}

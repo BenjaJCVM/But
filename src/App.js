@@ -1,16 +1,18 @@
 import './App.scss';
 import {ItemsProvider } from './context/CartContext/CartContext';
 import NavBar from './components/NavBar/NavBar';
+import Footer from './components/Footer/Footer';
 
 //react router dom
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 
 //VIEWS
-import Inicio from './views/Inicio';
-import Productos from './views/Productos/Productos';
-import Contacto from './views/Contacto';
+import Inicio from './views/Inicio/Inicio';
+import Contacto from './views/Contacto/Contacto';
 import ProductoDetalle from './views/ProductoDetalle/ProductoDetalle';
 import Cart from './views/Cart/Cart';
+import Category from './views/Categorias/Category';
+import Checkout from './views/Checkout/Checkout';
 
 function App() {
   return (
@@ -23,12 +25,16 @@ function App() {
           <body className='bodyTienda'>
             <Routes>
               <Route path='/' element={<Inicio/>}/>
-              <Route path='/Productos' element={<Productos/>}/>
               <Route path='/Contacto' element={<Contacto/>}/>
               <Route path='/Detalle/:id' element={<ProductoDetalle/>}/>
+              <Route path='/Category/:category' element={<Category />} />
               <Route path='/Cart' element={<Cart />}/>
+              <Route path='/Checkout' element={<Checkout />}/>
             </Routes>
           </body>
+          <footer className='footerTienda'>
+            <Footer />
+          </footer>
         </div>
       </BrowserRouter>
     </ItemsProvider>

@@ -1,11 +1,8 @@
 import {createContext, useState} from "react";
-import { useContext } from "react";
-import { TotalContext } from "../TotalContext/TotalContext";
 
 export const ItemsContext = createContext();
 
 export const ItemsProvider = ({ children }) =>{
-    const totalC = useContext(TotalContext);
     const [items, setItems] = useState([]);
     const [total, setTotal] = useState(0);
 
@@ -13,25 +10,14 @@ export const ItemsProvider = ({ children }) =>{
         return items.find(prod => prod.id === id)?true:false;
     }
 
-    const precioTotal = () => {
-        const totalPrecios = items.map(item => item.cantidad * item.price);
-        let sum = 0;
-        for(let i = 0; i < totalPrecios.length; i++){
-            sum += totalPrecios[i];
-        }
-        setTotal(sum);
-    }
-
-    const addItem = (item, cantidad) =>{
-        precioTotal();
-        let total = 0;
-
+    const addItem = (item, cantidad, total) =>{
+        total = cantidad * item.price;
         isInCart(item.id)
             ?
             setItems(items.map((prod) => {
                if(prod.id === item.id){
                 prod.cantidad += cantidad
-                total = cantidad *  item.price;
+                prod.total = prod.cantidad * prod.price;
                }
                 return prod
             }))

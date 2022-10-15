@@ -4,7 +4,7 @@ import ItemDetail from "../../components/ItemDetail/ItemDetail";
 
 // FIREBASE
 import { db } from '../../firebase/FirebaseConfig';
-import { doc, getDoc } from "firebase/firestore";
+import { doc, getDoc} from "firebase/firestore";
 
 
 const ProductoDetalle = () =>{

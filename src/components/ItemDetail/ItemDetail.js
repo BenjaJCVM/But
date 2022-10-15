@@ -7,11 +7,10 @@ const ItemDetail = ({item}) => {
     const [cart, setCart] = useState(false);
     const test = useContext(ItemsContext);
 
-    const onAdd = (cantidad) =>{
+    const onAdd = (cantidad,) =>{
         setCart(true);
         test.addItem(item,cantidad);
     }
-
 
     return(
         <div className="detalleContenedorItem">
@@ -22,16 +21,9 @@ const ItemDetail = ({item}) => {
                 <h2 className="detalleTituloItem">{item.title}</h2>
                 <p className="detallePrecioItem">${item.price}</p>
                 <h2 className="detalleTituloTalles">Talles</h2>
-                <select className="select">
-                    <option>S</option>
-                    <option>M</option>
-                    <option>L</option>
-                    <option>XL</option>
-                </select>
                 {cart ? 
                     <Link className="terminarBoton" to='/Cart'><div className="contTerminarBoton">Terminar Compra</div></Link>
                  : <ItemCount inicio={1} stock={item.stock} onAdd={onAdd}/>}
-                <button className="detalleBoton">Compra Rapida</button>
             </div>
         </div>
     );

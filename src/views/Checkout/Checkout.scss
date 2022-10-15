@@ -10,6 +10,19 @@
             border-bottom: 1px solid $nero;
             margin-bottom: 20px;
         }
+        .verRecibo{
+            width: 400px;
+        }
+        .disable{
+            display: none;
+        }
+        .divLineModal{
+            border-bottom: solid 1px #0D1B2A;
+            margin-bottom: 1rem;
+            .itemModal{
+                margin-bottom: 5px;
+            }
+        }
     }
     .contenedorDetalleCheck{
         width: 400px;

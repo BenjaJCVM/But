@@ -1,7 +1,9 @@
 import image1 from './img/1.jpg'
 import image2 from './img/2.jpg'
 import image3 from './img/3.jpg'
+//sin este import no funcion el carousel ni el dropdown, NO BORRAR
 import { Carousel } from 'bootstrap'
+
 
 const Carrusel = () => {
     return(

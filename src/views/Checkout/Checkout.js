@@ -5,10 +5,7 @@ import { addDoc, collection, serverTimestamp } from "firebase/firestore";
 import Modal from "../../components/Modal/Modal";
 import * as yup from "yup";
 import { Formik } from "formik";
-import { doc, getDoc} from "firebase/firestore";
-
-//traer lo del modal aca y hacer una funcion para traer la orden y luego el cambiar estado
-
+import { doc, getDoc } from "firebase/firestore";
 
 const Checkout = () => {
   const cart = useContext(ItemsContext);
@@ -16,8 +13,6 @@ const Checkout = () => {
   const [ordenID, setOrdenID] = useState("");
   const [estado, cambiarEstado] = useState(false);
   const [recibo, setRecibo] = useState([]);
-
- 
 
   const sumaTotal = () => {
     let totales = cart.items.map((item) => item.total);
@@ -40,15 +35,15 @@ const Checkout = () => {
     .required();
 
   const submitHandler = (values, resetForm) => {
-    const orden ={
-        comprador:{...values},
-        productos: cart.items.map((item) => ({
-          id: item.id,
-          title: item.title,
-          price: item.price,
-        })),
-        date: serverTimestamp()
-      };
+    const orden = {
+      comprador: { ...values },
+      productos: cart.items.map((item) => ({
+        id: item.id,
+        title: item.title,
+        price: item.price,
+      })),
+      date: serverTimestamp(),
+    };
     const ordenCompra = collection(db, "ordenes");
     addDoc(ordenCompra, orden).then(({ id }) => setOrdenID(id));
     resetForm();
@@ -58,20 +53,22 @@ const Checkout = () => {
     sumaTotal();
   }, [cart]);
 
-  const getOrden = () =>{
-    const q = doc(db, 'ordenes', ordenID);
-    getDoc(q)
-        .then(res => setRecibo({
-            id:res.id,
-            ...res.data()}))
-  }
+  const getOrden = () => {
+    const q = doc(db, "ordenes", ordenID);
+    getDoc(q).then((res) =>
+      setRecibo({
+        id: res.id,
+        ...res.data(),
+      })
+    );
+  };
 
-  const estadoYRecibo = () =>{
-    getOrden()
-    setTimeout(function(){
-      cambiarEstado(!estado)
-    } , 3000)
-}
+  const estadoYRecibo = () => {
+    getOrden();
+    setTimeout(function () {
+      cambiarEstado(!estado);
+    }, 3000);
+  };
 
   return (
     <div className="contenedorCheckout">
@@ -83,9 +80,9 @@ const Checkout = () => {
             apellido: "",
             telefono: "",
             email: "",
-            confirmacionEmail: ""
+            confirmacionEmail: "",
           }}
-          onSubmit={(values, { resetForm}) => submitHandler(values, resetForm)}
+          onSubmit={(values, { resetForm }) => submitHandler(values, resetForm)}
           validationSchema={esquemaYup}
         >
           {({
@@ -141,7 +138,7 @@ const Checkout = () => {
                 />
 
                 <input
-                  placeholder="Email"
+                  placeholder="Repetir email"
                   className="email"
                   name="confirmacionEmail"
                   type="email"
@@ -150,39 +147,66 @@ const Checkout = () => {
                   onBlur={handleBlur}
                   required
                 />
-
+                <p
+                  className={
+                    values.email !== values.confirmacionEmail
+                      ? "errorMail"
+                      : "disable"
+                  }
+                >
+                  Los emails deben ser iguales!
+                </p>
                 <input
                   type="submit"
-                  className="botonComprarAhora"
+                  className={
+                    values.nombre === "" ||
+                    values.apellido === "" ||
+                    values.telefono === "" ||
+                    values.email === "" ||
+                    values.confirmacionEmail === ""
+                      ? "botonComprarAhoraDisable"
+                      : "botonComprarAhora"
+                  }
                   value="Comprar ahora"
-                  disabled={!isValid}
-                  
+                  disabled={
+                    values.nombre === "" ||
+                    values.apellido === "" ||
+                    values.telefono === "" ||
+                    values.email !== values.confirmacionEmail
+                      ? isValid
+                      : !isValid
+                  }
                 />
               </form>
               {ordenID && (
                 <p>
-                  Compra realizada con exito! Su orden de compra es:{" "}
-                  <span className="orderIDNegrita">{ordenID}</span>
+                  Compra realizada con exito! Su orden de compra es:
+                  <span className="orderIDNegrita"> {ordenID}</span>
                 </p>
               )}
             </div>
           )}
         </Formik>
-        <Modal 
-            estado={estado}
-            cambiarEstado={cambiarEstado}
-            recibo={recibo}
-            total={total}
+        <Modal
+          estado={estado}
+          cambiarEstado={cambiarEstado}
+          recibo={recibo}
+          total={total}
         >
-            {cart.items.map((item) => (
-              <div className="divLineModal">
-                <p className="itemModal">Producto: {item.title}</p>
-                <p className="itemModal">Precio Unitario: {item.price}</p>
-                <p className="itemModal">Cantidad: {item.cantidad}</p>
-              </div>
+          {cart.items.map((item) => (
+            <div className="divLineModal">
+              <p className="itemModal">Producto: {item.title}</p>
+              <p className="itemModal">Precio Unitario: {item.price}</p>
+              <p className="itemModal">Cantidad: {item.cantidad}</p>
+            </div>
           ))}
         </Modal>
-        <button onClick={estadoYRecibo} className={!ordenID ? 'disable' : 'verRecibo'}>Ver recibo</button>
+        <button
+          onClick={estadoYRecibo}
+          className={!ordenID ? "disable" : "verRecibo"}
+        >
+          Ver recibo
+        </button>
       </div>
       <div className="contenedorDetalleCheck">
         <h3 className="tituloResumenCompra">Resumen de la compra</h3>

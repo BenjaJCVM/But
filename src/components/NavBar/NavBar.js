@@ -11,7 +11,6 @@ const NavBar = () => {
             <ul className="menu">
                 <Link to='/' className='enlace'>Inicio</Link>
                 <Dropdown/>
-                <Link to='/Contacto' className='enlace'>Contacto</Link>
                 <Link to='/Cart' className='enlace'><CartWidget /></Link>
             </ul>
         </nav>

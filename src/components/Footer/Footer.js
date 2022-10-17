@@ -6,9 +6,6 @@ const Footer = () => {
                 <h3 className='tituloFooter'>Navegacion</h3>
                 <ul className='ulNavFooter'>
                     <Link to='/' className='enlace'>Inicio</Link>
-                    <Link to='/Productos' className='enlace'>Productos</Link>
-                    <Link to='/Contacto' className='enlace'>Contacto</Link>
-                    <Link to='' className='enlace'>Envios</Link>
                 </ul>
             </div>
             <div className="contactanosFooter">
